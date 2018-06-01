@@ -51,9 +51,11 @@ class ChartFactory(object):
         for sc in Chart.__subclasses__():
             if sc.__name__ == chart_type:
                 return sc()
+        return None
                 
 
 if __name__ == '__main__':
     chart_factory = ChartFactory()
     chart = chart_factory.create("HistogramChart")
-    chart.display()
+    if chart:
+        chart.display()
