@@ -1,8 +1,8 @@
 from abc import ABCMeta, abstractmethod
 import unittest
 
-class DrawingTool(object, metaclass=ABCMeta):
 
+class DrawingTool(object, metaclass=ABCMeta):
     @abstractmethod
     def __init__(self):
         pass
@@ -17,7 +17,6 @@ class DrawingTool(object, metaclass=ABCMeta):
 
 
 class CircleDrawingTool(DrawingTool):
-
     def __init__(self):
         print("初始化圆形绘图工具")
 
@@ -29,7 +28,6 @@ class CircleDrawingTool(DrawingTool):
 
 
 class SquareDrawingTool(object):
-
     def __init__(self):
         print("初始化方形绘图工具")
 
@@ -41,7 +39,6 @@ class SquareDrawingTool(object):
 
 
 class TriangleDrawingTool(object):
-
     def __init__(self):
         print("初始化三角形绘图工具")
 
@@ -53,7 +50,6 @@ class TriangleDrawingTool(object):
 
 
 class DrawingToolFactory(object):
-
     @staticmethod
     def create(drawing_tool_type):
         if drawing_tool_type.lower() == 'circle':
@@ -65,14 +61,16 @@ class DrawingToolFactory(object):
         else:
             raise RuntimeError('Unsupported Drawing Tool Type!')
 
-class DrawingToolTests(unittest.TestCase):
 
+class DrawingToolTests(unittest.TestCase):
     def test_supported_drawing_tool_type(self):
         drawing_tool = DrawingToolFactory.create('triangle')
         self.assertIsInstance(drawing_tool, TriangleDrawingTool)
 
     def test_unsupported_drawing_tool_type(self):
-        self.assertRaises(RuntimeError, DrawingToolFactory.create, 'unsupported')
+        self.assertRaises(RuntimeError, DrawingToolFactory.create,
+                          'unsupported')
+
 
 if __name__ == '__main__':
     unittest.main()

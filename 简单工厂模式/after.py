@@ -1,5 +1,6 @@
 from abc import abstractmethod, ABCMeta
 
+
 class Chart(metaclass=ABCMeta):
     """
     """
@@ -7,7 +8,7 @@ class Chart(metaclass=ABCMeta):
     @abstractmethod
     def __init__(self):
         pass
-        
+
     @abstractmethod
     def display(self):
         pass
@@ -45,8 +46,8 @@ class LineChart(Chart):
     def display(self):
         print("显示折线图")
 
+
 class ChartFactory(object):
-    
     @staticmethod
     def create(chart_type):
         for sc in Chart.__subclasses__():

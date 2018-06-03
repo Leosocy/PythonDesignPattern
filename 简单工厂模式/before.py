@@ -1,5 +1,4 @@
 class Chart(object):
-    
     def __init__(self, type):
         self._type = type
         if type.lower() == "histogram":
@@ -16,6 +15,7 @@ class Chart(object):
             print("显示化饼状图")
         elif self._type.lower() == "line":
             print("显示化折线图")
+
 
 if __name__ == '__main__':
     histogram = Chart("histogram")
